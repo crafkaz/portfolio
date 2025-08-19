@@ -1,9 +1,9 @@
-import { THEME_LIGHT, THEME_DARK } from '../constants/theme';
-import { Theme, ThemeConfig } from '../types';
+import { THEME_LIGHT, THEME_DARK } from "../constants/theme";
+import { Theme, ThemeConfig } from "../types";
 
 export function createThemeConfig(theme: Theme = THEME_LIGHT): ThemeConfig {
   const isDark = theme === THEME_DARK;
-  
+
   return {
     bgColor: isDark ? "gray.900" : "white",
     cardBg: isDark ? "whiteAlpha.50" : "white",

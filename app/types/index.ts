@@ -1,2 +1,2 @@
-export * from './personal';
-export * from './theme';
+export * from "./personal";
+export * from "./theme";
