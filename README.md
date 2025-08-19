@@ -26,14 +26,37 @@ $PROJECT_ROOT
 │   │   ├── WorkSection.tsx
 │   │   └── ...
 │   │
-│   │   # Non-page modules
-│   ├── lib                 # Configuration & utilities
-│   ├── types               # TypeScript definitions
-│   └── constants           # App constants
+│   │   # Configuration files
+│   ├── config
+│   │   ├── metadata.ts     # Site metadata config
+│   │   └── profile.ts      # Profile configuration
+│   │
+│   │   # Utilities & context
+│   ├── lib
+│   │   ├── metadata.ts     # SEO metadata
+│   │   ├── theme.ts        # Theme utilities
+│   │   └── themeUtils.ts   # Additional theme helpers
+│   │
+│   ├── context
+│   │   └── ThemeContext.tsx # Theme context provider
+│   │
+│   │   # TypeScript definitions
+│   ├── types
+│   │   ├── personal.ts     # Personal info types
+│   │   ├── theme.ts        # Theme types
+│   │   └── index.ts        # Type exports
+│   │
+│   │   # App constants
+│   └── constants
+│       └── theme.ts        # Theme constants
 │
 │   # Static files
-└── public
-    └── images
+├── public
+│   ├── images
+│   │   └── og-image.png    # Social sharing image
+│   └── favicon.ico         # Site favicon
+│
+└── components/ui           # External UI components
 ```
 
 ## License
