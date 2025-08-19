@@ -1,4 +1,4 @@
-import { PersonalInfo } from '../types';
+import { PersonalInfo } from "../types";
 
 export const personalInfo: PersonalInfo = {
   name: "Kazuki Nagasawa",
@@ -9,7 +9,8 @@ export const personalInfo: PersonalInfo = {
   work: {
     title: "Work",
     description: "大阪を拠点にWeb開発を行っています。",
-    experience: "企業での開発経験2年。Webアプリケーションの設計から開発、保守など全般担当。",
+    experience:
+      "企業での開発経験2年。Webアプリケーションの設計から開発、保守など全般担当。",
     techStacksTitle: "技術スタック",
     techStacks: {
       backend: {
@@ -17,7 +18,7 @@ export const personalInfo: PersonalInfo = {
         items: ["Laravel", "Rails", "Django", "PHP", "Ruby", "Python"],
       },
       frontend: {
-        title: "Frontend", 
+        title: "Frontend",
         items: ["Next.js", "Nuxt.js", "React", "Vue.js", "TypeScript"],
       },
       tools: {
@@ -48,7 +49,7 @@ export const personalInfo: PersonalInfo = {
         username: "@k_nagasawa_",
       },
       {
-        platform: "github", 
+        platform: "github",
         url: "https://github.com/18kazee",
         username: "@18kazee",
       },

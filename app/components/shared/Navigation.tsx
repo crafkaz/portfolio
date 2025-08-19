@@ -7,11 +7,7 @@ import {
   IconButton,
   Flex,
 } from "@chakra-ui/react";
-import {
-  IoLogoGithub,
-  IoMoon,
-  IoSunnyOutline,
-} from "react-icons/io5";
+import { IoLogoGithub, IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme } from "next-themes";
 import NextLink from "next/link";
 import { ThemeConfig } from "../../types";
@@ -23,7 +19,8 @@ interface NavigationProps {
 
 export function Navigation({ themeConfig }: NavigationProps) {
   const { theme, setTheme } = useTheme();
-  const { borderColor, textColor, mutedColor, accentColor, navBg } = themeConfig;
+  const { borderColor, textColor, mutedColor, accentColor, navBg } =
+    themeConfig;
 
   return (
     <Box

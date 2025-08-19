@@ -74,4 +74,3 @@ export function HeroSection({ themeConfig }: HeroSectionProps) {
     </Box>
   );
 }
-

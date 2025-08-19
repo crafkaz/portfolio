@@ -16,7 +16,8 @@ interface WorkSectionProps {
 }
 
 export function WorkSection({ themeConfig }: WorkSectionProps) {
-  const { cardBg, borderColor, textColor, mutedColor, accentColor } = themeConfig;
+  const { cardBg, borderColor, textColor, mutedColor, accentColor } =
+    themeConfig;
 
   return (
     <Box as="section" mb={12}>
