@@ -1,103 +1,436 @@
-import Image from "next/image";
+"use client";
+
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Stack,
+  HStack,
+  VStack,
+  Link,
+  IconButton,
+  Flex,
+  Avatar,
+  Badge,
+} from "@chakra-ui/react";
+import {
+  IoLogoGithub,
+  IoLogoTwitter,
+  IoMoon,
+  IoSunnyOutline,
+  IoMusicalNotes,
+  IoHeart,
+} from "react-icons/io5";
+import { useTheme } from "next-themes";
+import NextLink from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // カラーテーマの定義
+  const bgColor = theme === "dark" ? "gray.900" : "white";
+
+  const cardBg = theme === "dark" ? "whiteAlpha.50" : "white";
+  const borderColor = theme === "dark" ? "whiteAlpha.200" : "gray.200";
+  const textColor = theme === "dark" ? "whiteAlpha.900" : "gray.800";
+  const mutedColor = theme === "dark" ? "whiteAlpha.700" : "gray.600";
+  const accentColor = theme === "dark" ? "teal.300" : "teal.500";
+  const navBg = theme === "dark" ? "blackAlpha.300" : "whiteAlpha.800";
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
+    <Box minH="100vh" bg={bgColor}>
+      {/* Navigation */}
+      <Box
+        as="nav"
+        py={4}
+        px={6}
+        backdropFilter="blur(10px)"
+        bg={navBg}
+        position="sticky"
+        top={0}
+        zIndex={10}
+        borderBottom="1px solid"
+        borderColor={borderColor}
+      >
+        <Container maxW="container.md">
+          <Flex justify="space-between" align="center">
+            <Heading size="md" fontWeight="bold" color={textColor}>
+              Kazuki Nagasawa
+            </Heading>
+            <HStack gap={6}>
+              <Link
+                as={NextLink}
+                href="https://github.com/18kazee/portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                display="flex"
+                alignItems="center"
+                color={mutedColor}
+                _hover={{
+                  color: accentColor,
+                  transform: "translateY(-2px)",
+                  transition: "all 0.2s",
+                }}
+              >
+                <IoLogoGithub style={{ marginRight: "4px" }} />
+                Source
+              </Link>
+              <IconButton
+                aria-label="Toggle color mode"
+                onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+                size="sm"
+                variant="ghost"
+                color={accentColor}
+                _hover={{
+                  bg: theme === "dark" ? "whiteAlpha.200" : "blackAlpha.100",
+                  transform: "rotate(180deg)",
+                }}
+                transition="all 0.3s"
+              >
+                {theme === "light" ? <IoMoon /> : <IoSunnyOutline />}
+              </IconButton>
+            </HStack>
+          </Flex>
+        </Container>
+      </Box>
+
+      <Container maxW="container.md" py={8}>
+        {/* Hero Section */}
+        <Box
+          borderRadius="2xl"
+          mb={8}
+          p={8}
+          bg={cardBg}
+          backdropFilter="blur(10px)"
+          boxShadow="xl"
+          border="1px solid"
+          borderColor={borderColor}
+          position="relative"
+        >
+          <Flex
+            align="center"
+            justify="space-between"
+            direction={{ base: "column-reverse", md: "row" }}
+            gap={6}
+            position="relative"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Box flex="1">
+              <Text
+                fontSize="sm"
+                color={accentColor}
+                fontWeight="bold"
+                letterSpacing="wider"
+                textTransform="uppercase"
+                mb={2}
+              >
+                Hello, I&apos;m a developer based in Osaka!
+              </Text>
+              <Heading
+                as="h1"
+                size="2xl"
+                mb={3}
+                color={textColor}
+                fontWeight="extrabold"
+              >
+                Kazuki Nagasawa
+              </Heading>
+              <Text color={mutedColor} fontSize="lg">
+                Software Engineer / Drummer / Father
+              </Text>
+            </Box>
+            <Box
+              p={3}
+              borderRadius="full"
+              bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+              boxShadow="0 10px 30px rgba(102, 126, 234, 0.3)"
+            >
+              <Avatar.Root size="2xl">
+                <Avatar.Fallback
+                  name="Kazuki Nagasawa"
+                  bg="transparent"
+                  color={textColor}
+                  fontSize="3xl"
+                  fontWeight="bold"
+                />
+              </Avatar.Root>
+            </Box>
+          </Flex>
+        </Box>
+
+        {/* Work Section */}
+        <Box as="section" mb={12}>
+          <Flex align="center" mb={6}>
+            <Heading
+              as="h2"
+              size="lg"
+              borderBottom="3px solid"
+              borderColor={accentColor}
+              pb={2}
+              pr={4}
+              color={textColor}
+            >
+              Work
+            </Heading>
+            <Box flex="1" height="1px" bg={borderColor} ml={4} />
+          </Flex>
+
+          <Box
+            p={6}
+            borderRadius="xl"
+            bg={cardBg}
+            backdropFilter="blur(10px)"
+            border="1px solid"
+            borderColor={borderColor}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <VStack align="start" gap={4} color={textColor}>
+              <Text fontSize="lg">大阪を拠点にWeb開発を行っています。</Text>
+              <Text color={mutedColor}>
+                企業での開発経験2年。Webアプリケーションの設計から開発、保守など全般担当。
+              </Text>
+
+              <Box w="full" h="1px" bg={borderColor} my={4} />
+
+              <Box w="full">
+                <Heading as="h3" size="sm" mb={4} color={accentColor}>
+                  技術スタック
+                </Heading>
+                <Stack gap={3}>
+                  <Box>
+                    <Text fontSize="sm" fontWeight="bold" mb={2}>
+                      Backend
+                    </Text>
+                    <HStack gap={2} flexWrap="wrap">
+                      {[
+                        "Laravel",
+                        "Rails",
+                        "Django",
+                        "PHP",
+                        "Ruby",
+                        "Python",
+                      ].map((tech) => (
+                        <Badge
+                          key={tech}
+                          bg="purple.100"
+                          color="purple.800"
+                          px={3}
+                          py={1}
+                          borderRadius="full"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </HStack>
+                  </Box>
+                  <Box>
+                    <Text fontSize="sm" fontWeight="bold" mb={2}>
+                      Frontend
+                    </Text>
+                    <HStack gap={2} flexWrap="wrap">
+                      {[
+                        "Next.js",
+                        "Nuxt.js",
+                        "React",
+                        "Vue.js",
+                        "TypeScript",
+                      ].map((tech) => (
+                        <Badge
+                          key={tech}
+                          bg="teal.100"
+                          color="teal.800"
+                          px={3}
+                          py={1}
+                          borderRadius="full"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </HStack>
+                  </Box>
+                  <Box>
+                    <Text fontSize="sm" fontWeight="bold" mb={2}>
+                      Tools & Others
+                    </Text>
+                    <HStack gap={2} flexWrap="wrap">
+                      {[
+                        "Docker",
+                        "AWS",
+                        "MySQL",
+                        "PostgreSQL",
+                        "Git",
+                        "Vim",
+                      ].map((tech) => (
+                        <Badge
+                          key={tech}
+                          bg="blue.100"
+                          color="blue.800"
+                          px={3}
+                          py={1}
+                          borderRadius="full"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </HStack>
+                  </Box>
+                </Stack>
+              </Box>
+            </VStack>
+          </Box>
+        </Box>
+
+        {/* Hobby Section */}
+        <Box as="section" mb={12}>
+          <Flex align="center" mb={6}>
+            <Heading
+              as="h2"
+              size="lg"
+              borderBottom="3px solid"
+              borderColor={accentColor}
+              pb={2}
+              pr={4}
+              color={textColor}
+            >
+              Hobby
+            </Heading>
+            <Box flex="1" height="1px" bg={borderColor} ml={4} />
+          </Flex>
+
+          <Box
+            p={6}
+            borderRadius="xl"
+            bg={cardBg}
+            backdropFilter="blur(10px)"
+            border="1px solid"
+            borderColor={borderColor}
+          >
+            <HStack gap={6} flexWrap="wrap">
+              <Box>
+                <Box fontSize="2xl" mb={2} color={accentColor}>
+                  <IoMusicalNotes />
+                </Box>
+                <Text fontSize="lg" color={textColor} fontWeight="bold">
+                  ドラム
+                </Text>
+                <Text fontSize="sm" color={mutedColor}>
+                  音楽
+                </Text>
+              </Box>
+              <Box>
+                <Box fontSize="2xl" mb={2} color={accentColor}>
+                  <IoHeart />
+                </Box>
+                <Text fontSize="lg" color={textColor} fontWeight="bold">
+                  娘と遊ぶ
+                </Text>
+                <Text fontSize="sm" color={mutedColor}>
+                  family
+                </Text>
+              </Box>
+            </HStack>
+          </Box>
+        </Box>
+
+        {/* On the web Section */}
+        <Box as="section" mb={12}>
+          <Flex align="center" mb={6}>
+            <Heading
+              as="h2"
+              size="lg"
+              borderBottom="3px solid"
+              borderColor={accentColor}
+              pb={2}
+              pr={4}
+              color={textColor}
+            >
+              On the web
+            </Heading>
+            <Box flex="1" height="1px" bg={borderColor} ml={4} />
+          </Flex>
+
+          <Stack gap={3}>
+            <Link
+              as={NextLink}
+              href="https://twitter.com/k_nagasawa_"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{ textDecoration: "none" }}
+            >
+              <Box
+                p={3}
+                borderRadius="lg"
+                bg={cardBg}
+                border="1px solid"
+                borderColor={borderColor}
+                _hover={{
+                  transform: "translateX(4px)",
+                  borderColor: accentColor,
+                }}
+                transition="all 0.2s"
+              >
+                <HStack>
+                  <IoLogoTwitter color="#1DA1F2" size="20" />
+                  <Text fontWeight="bold" color={textColor}>
+                    @k_nagasawa_
+                  </Text>
+                </HStack>
+              </Box>
+            </Link>
+
+            <Link
+              as={NextLink}
+              href="https://github.com/18kazee"
+              target="_blank"
+              rel="noopener noreferrer"
+              _hover={{ textDecoration: "none" }}
+            >
+              <Box
+                p={3}
+                borderRadius="lg"
+                bg={cardBg}
+                border="1px solid"
+                borderColor={borderColor}
+                _hover={{
+                  transform: "translateX(4px)",
+                  borderColor: accentColor,
+                }}
+                transition="all 0.2s"
+              >
+                <HStack>
+                  <IoLogoGithub size="20" />
+                  <Text fontWeight="bold" color={textColor}>
+                    @18kazee
+                  </Text>
+                </HStack>
+              </Box>
+            </Link>
+          </Stack>
+        </Box>
+
+        {/* Footer */}
+        <Box
+          as="footer"
+          textAlign="center"
+          mt={16}
+          pt={8}
+          borderTop="1px solid"
+          borderColor={borderColor}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <Text fontSize="sm" color={mutedColor}>
+            © 2025 Kazuki Nagasawa. All Rights Reserved.
+          </Text>
+        </Box>
+      </Container>
+    </Box>
   );
 }
