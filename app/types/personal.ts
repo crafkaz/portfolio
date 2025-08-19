@@ -14,6 +14,16 @@ export interface SocialItem {
   username: string;
 }
 
+export interface SiteMetadata {
+  title: string;
+  description: string;
+  keywords: string[];
+  author: string;
+  ogImage: string;
+  twitterHandle: string;
+  lang: string;
+}
+
 export interface PersonalInfo {
   name: string;
   title: string;

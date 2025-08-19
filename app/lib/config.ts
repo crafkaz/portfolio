@@ -1,4 +1,20 @@
-import { PersonalInfo } from "../types";
+import { PersonalInfo, SiteMetadata } from "../types";
+
+export const siteMetadata: SiteMetadata = {
+  title: "Kazuki Nagasawa - Software Engineer",
+  description: "大阪を拠点にWeb開発を行うソフトウェアエンジニア。",
+  keywords: [
+    "Software Engineer",
+    "Web Developer",
+    "Kazuki",
+    "Nagasawa",
+    "大阪",
+  ],
+  author: "Kazuki Nagasawa",
+  ogImage: "images/og-image.png",
+  twitterHandle: "@k_nagasawa_",
+  lang: "ja",
+};
 
 export const personalInfo: PersonalInfo = {
   name: "Kazuki Nagasawa",
