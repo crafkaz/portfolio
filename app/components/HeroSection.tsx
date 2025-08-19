@@ -1,10 +1,4 @@
-import {
-  Box,
-  Heading,
-  Text,
-  Flex,
-  Avatar,
-} from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, Avatar } from "@chakra-ui/react";
 import { ThemeConfig } from "../types";
 import { personalInfo } from "../lib/config";
 
@@ -13,7 +7,8 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ themeConfig }: HeroSectionProps) {
-  const { cardBg, borderColor, textColor, mutedColor, accentColor } = themeConfig;
+  const { cardBg, borderColor, textColor, mutedColor, accentColor } =
+    themeConfig;
 
   return (
     <Box
@@ -59,12 +54,13 @@ export function HeroSection({ themeConfig }: HeroSectionProps) {
           </Text>
         </Box>
         <Box
-          p={3}
+          p={2}
           borderRadius="full"
           bg="linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
-          boxShadow="0 10px 30px rgba(102, 126, 234, 0.3)"
+          boxShadow="0 5px 20px rgba(102, 126, 234, 0.2)"
         >
           <Avatar.Root size="2xl">
+            <Avatar.Image src="/images/kazuki.JPG" alt="Kazuki Nagasawa" />
             <Avatar.Fallback
               name="Kazuki Nagasawa"
               bg="transparent"
@@ -78,3 +74,4 @@ export function HeroSection({ themeConfig }: HeroSectionProps) {
     </Box>
   );
 }
+
