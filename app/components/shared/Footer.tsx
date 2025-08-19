@@ -1,12 +1,9 @@
 import { Box, Text } from "@chakra-ui/react";
-import { ThemeConfig } from "../../types";
-import { personalInfo } from "../../lib/config";
+import { personalInfo } from "../../config/profile";
+import { useAppTheme } from "../../context/ThemeContext";
 
-interface FooterProps {
-  themeConfig: ThemeConfig;
-}
-
-export function Footer({ themeConfig }: FooterProps) {
+export function Footer() {
+  const { themeConfig } = useAppTheme();
   const { borderColor, mutedColor } = themeConfig;
 
   return (

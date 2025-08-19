@@ -8,14 +8,11 @@ import {
   Flex,
   Badge,
 } from "@chakra-ui/react";
-import { ThemeConfig } from "../types";
-import { personalInfo } from "../lib/config";
+import { personalInfo } from "../config/profile";
+import { useAppTheme } from "../context/ThemeContext";
 
-interface WorkSectionProps {
-  themeConfig: ThemeConfig;
-}
-
-export function WorkSection({ themeConfig }: WorkSectionProps) {
+export function WorkSection() {
+  const { themeConfig } = useAppTheme();
   const { cardBg, borderColor, textColor, mutedColor, accentColor } =
     themeConfig;
 
@@ -91,6 +88,46 @@ export function WorkSection({ themeConfig }: WorkSectionProps) {
                       {tech}
                     </Badge>
                   ))}
+                </HStack>
+              </Box>
+              <Box>
+                <Text fontSize="sm" fontWeight="bold" mb={2}>
+                  {personalInfo.work.techStacks.mobile.title}
+                </Text>
+                <HStack gap={2} flexWrap="wrap">
+                  {personalInfo.work.techStacks.mobile.items.map((tech) => (
+                    <Badge
+                      key={tech}
+                      bg="orange.100"
+                      color="orange.800"
+                      px={3}
+                      py={1}
+                      borderRadius="full"
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </HStack>
+              </Box>
+              <Box>
+                <Text fontSize="sm" fontWeight="bold" mb={2}>
+                  {personalInfo.work.techStacks.infrastructure.title}
+                </Text>
+                <HStack gap={2} flexWrap="wrap">
+                  {personalInfo.work.techStacks.infrastructure.items.map(
+                    (tech) => (
+                      <Badge
+                        key={tech}
+                        bg="green.100"
+                        color="green.800"
+                        px={3}
+                        py={1}
+                        borderRadius="full"
+                      >
+                        {tech}
+                      </Badge>
+                    ),
+                  )}
                 </HStack>
               </Box>
               <Box>

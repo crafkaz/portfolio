@@ -9,14 +9,11 @@ import {
 } from "@chakra-ui/react";
 import { IoLogoGithub, IoLogoTwitter } from "react-icons/io5";
 import NextLink from "next/link";
-import { ThemeConfig } from "../types";
-import { personalInfo } from "../lib/config";
+import { personalInfo } from "../config/profile";
+import { useAppTheme } from "../context/ThemeContext";
 
-interface SocialsSectionProps {
-  themeConfig: ThemeConfig;
-}
-
-export function SocialsSection({ themeConfig }: SocialsSectionProps) {
+export function SocialsSection() {
+  const { themeConfig } = useAppTheme();
   const { cardBg, borderColor, textColor, accentColor } = themeConfig;
 
   return (

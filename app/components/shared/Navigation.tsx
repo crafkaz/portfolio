@@ -8,17 +8,13 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { IoLogoGithub, IoMoon, IoSunnyOutline } from "react-icons/io5";
-import { useTheme } from "next-themes";
 import NextLink from "next/link";
-import { ThemeConfig } from "../../types";
-import { personalInfo } from "../../lib/config";
+import { personalInfo } from "../../config/profile";
+import { THEME_DARK, THEME_LIGHT } from "../../constants/theme";
+import { useAppTheme } from "../../context/ThemeContext";
 
-interface NavigationProps {
-  themeConfig: ThemeConfig;
-}
-
-export function Navigation({ themeConfig }: NavigationProps) {
-  const { theme, setTheme } = useTheme();
+export function Navigation() {
+  const { themeConfig, mounted, setTheme, resolvedTheme } = useAppTheme();
   const { borderColor, textColor, mutedColor, accentColor, navBg } =
     themeConfig;
 
@@ -60,17 +56,27 @@ export function Navigation({ themeConfig }: NavigationProps) {
             </Link>
             <IconButton
               aria-label={personalInfo.navigation.themeToggleLabel}
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              onClick={() => {
+                const isDark = mounted ? resolvedTheme === THEME_DARK : false;
+                setTheme(isDark ? THEME_LIGHT : THEME_DARK);
+              }}
               size="sm"
               variant="ghost"
               color={accentColor}
               _hover={{
-                bg: theme === "dark" ? "whiteAlpha.200" : "blackAlpha.100",
+                bg:
+                  mounted && resolvedTheme === THEME_DARK
+                    ? "whiteAlpha.200"
+                    : "blackAlpha.100",
                 transform: "rotate(180deg)",
               }}
               transition="all 0.3s"
             >
-              {theme === "light" ? <IoMoon /> : <IoSunnyOutline />}
+              {mounted && resolvedTheme === THEME_DARK ? (
+                <IoSunnyOutline />
+              ) : (
+                <IoMoon />
+              )}
             </IconButton>
           </HStack>
         </Flex>
