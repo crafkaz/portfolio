@@ -1,13 +1,10 @@
 import { Box, Heading, Text, HStack, Flex } from "@chakra-ui/react";
 import { IoMusicalNotes, IoHeart } from "react-icons/io5";
-import { ThemeConfig } from "../types";
 import { personalInfo } from "../config/profile";
+import { useAppTheme } from "../context/ThemeContext";
 
-interface HobbySectionProps {
-  themeConfig: ThemeConfig;
-}
-
-export function HobbySection({ themeConfig }: HobbySectionProps) {
+export function HobbySection() {
+  const { themeConfig } = useAppTheme();
   const { cardBg, borderColor, textColor, mutedColor, accentColor } =
     themeConfig;
 

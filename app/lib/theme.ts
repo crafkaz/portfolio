@@ -1,8 +1,12 @@
 import { THEME_LIGHT, THEME_DARK } from "../constants/theme";
 import { Theme, ThemeConfig } from "../types";
 
-export function createThemeConfig(theme: Theme = THEME_LIGHT): ThemeConfig {
-  const isDark = theme === THEME_DARK;
+export function createThemeConfig(
+  theme: Theme = THEME_LIGHT,
+  mounted: boolean = true,
+): ThemeConfig {
+  const safeTheme = mounted && theme ? theme : THEME_LIGHT;
+  const isDark = safeTheme === THEME_DARK;
 
   return {
     bgColor: isDark ? "gray.900" : "white",

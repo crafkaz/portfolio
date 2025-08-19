@@ -1,12 +1,9 @@
 import { Box, Heading, Text, Flex, Avatar } from "@chakra-ui/react";
-import { ThemeConfig } from "../types";
 import { personalInfo } from "../config/profile";
+import { useAppTheme } from "../context/ThemeContext";
 
-interface HeroSectionProps {
-  themeConfig: ThemeConfig;
-}
-
-export function HeroSection({ themeConfig }: HeroSectionProps) {
+export function HeroSection() {
+  const { themeConfig } = useAppTheme();
   const { cardBg, borderColor, textColor, mutedColor, accentColor } =
     themeConfig;
 
