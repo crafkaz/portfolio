@@ -12,11 +12,14 @@ import NextLink from "next/link";
 import { personalInfo } from "../../config/profile";
 import { THEME_DARK, THEME_LIGHT } from "../../constants/theme";
 import { useAppTheme } from "../../context/ThemeContext";
+import { getActualTheme } from "../../lib/themeUtils";
 
 export function Navigation() {
-  const { themeConfig, mounted, setTheme, resolvedTheme } = useAppTheme();
+  const { themeConfig, mounted, setTheme, resolvedTheme, theme } =
+    useAppTheme();
   const { borderColor, textColor, mutedColor, accentColor, navBg } =
     themeConfig;
+  const actualTheme = getActualTheme(mounted, theme, resolvedTheme);
 
   return (
     <Box
@@ -57,7 +60,7 @@ export function Navigation() {
             <IconButton
               aria-label={personalInfo.navigation.themeToggleLabel}
               onClick={() => {
-                const isDark = mounted ? resolvedTheme === THEME_DARK : false;
+                const isDark = actualTheme === THEME_DARK;
                 setTheme(isDark ? THEME_LIGHT : THEME_DARK);
               }}
               size="sm"
@@ -65,18 +68,14 @@ export function Navigation() {
               color={accentColor}
               _hover={{
                 bg:
-                  mounted && resolvedTheme === THEME_DARK
+                  actualTheme === THEME_DARK
                     ? "whiteAlpha.200"
                     : "blackAlpha.100",
                 transform: "rotate(180deg)",
               }}
               transition="all 0.3s"
             >
-              {mounted && resolvedTheme === THEME_DARK ? (
-                <IoSunnyOutline />
-              ) : (
-                <IoMoon />
-              )}
+              {actualTheme === THEME_DARK ? <IoSunnyOutline /> : <IoMoon />}
             </IconButton>
           </HStack>
         </Flex>
