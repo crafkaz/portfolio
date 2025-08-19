@@ -38,6 +38,8 @@ export interface PersonalInfo {
     techStacks: {
       backend: TechStack;
       frontend: TechStack;
+      mobile: TechStack;
+      infrastructure: TechStack;
       tools: TechStack;
     };
   };

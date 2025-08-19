@@ -9,7 +9,7 @@ import {
   Badge,
 } from "@chakra-ui/react";
 import { ThemeConfig } from "../types";
-import { personalInfo } from "../lib/config";
+import { personalInfo } from "../config/profile";
 
 interface WorkSectionProps {
   themeConfig: ThemeConfig;

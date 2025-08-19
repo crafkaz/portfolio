@@ -10,7 +10,7 @@ import {
 import { IoLogoGithub, IoLogoTwitter } from "react-icons/io5";
 import NextLink from "next/link";
 import { ThemeConfig } from "../types";
-import { personalInfo } from "../lib/config";
+import { personalInfo } from "../config/profile";
 
 interface SocialsSectionProps {
   themeConfig: ThemeConfig;

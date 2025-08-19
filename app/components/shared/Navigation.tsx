@@ -11,7 +11,7 @@ import { IoLogoGithub, IoMoon, IoSunnyOutline } from "react-icons/io5";
 import { useTheme } from "next-themes";
 import NextLink from "next/link";
 import { ThemeConfig } from "../../types";
-import { personalInfo } from "../../lib/config";
+import { personalInfo } from "../../config/profile";
 
 interface NavigationProps {
   themeConfig: ThemeConfig;

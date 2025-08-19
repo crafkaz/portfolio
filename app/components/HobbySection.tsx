@@ -1,7 +1,7 @@
 import { Box, Heading, Text, HStack, Flex } from "@chakra-ui/react";
 import { IoMusicalNotes, IoHeart } from "react-icons/io5";
 import { ThemeConfig } from "../types";
-import { personalInfo } from "../lib/config";
+import { personalInfo } from "../config/profile";
 
 interface HobbySectionProps {
   themeConfig: ThemeConfig;

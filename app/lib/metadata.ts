@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { siteMetadata } from "./config";
+import { siteMetadata } from "../config/metadata";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+  ),
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
