@@ -69,8 +69,8 @@ export const personalInfo: PersonalInfo = {
     items: [
       {
         platform: "twitter",
-        url: "https://twitter.com/k_nagasawa_",
-        username: "@k_nagasawa_",
+        url: "https://twitter.com/crafkaz",
+        username: "@crafkaz",
       },
       {
         platform: "github",
