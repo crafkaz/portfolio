@@ -59,7 +59,7 @@ export function SocialsSection() {
                 {social.platform === "twitter" ? (
                   <IoLogoTwitter color="#1DA1F2" size="20" />
                 ) : (
-                  <IoLogoGithub size="20" />
+                  <IoLogoGithub color={textColor} size="20" />
                 )}
                 <Text fontWeight="bold" color={textColor}>
                   {social.username}
