@@ -1,11 +1,18 @@
 services:
   app:
     build: .
-    ports:
-      - "3000:3000"
     volumes:
       - .:/app
-      - ./node_modules:/app/node_modules
-      - /app/.next
-    stdin_open: true
-    tty: true
+      - node_modules:/app/node_modules
+      - .:/host # ホストをマウント
+    ports:
+      - "3000:3000"
+    command: sh -c "mkdir -p /host/node_modules && yarn dev"
+
+volumes:
+  node_modules:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/node_modules
+      o: bind
