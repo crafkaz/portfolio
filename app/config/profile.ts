@@ -74,8 +74,8 @@ export const personalInfo: PersonalInfo = {
       },
       {
         platform: "github",
-        url: "https://github.com/18kazee",
-        username: "@18kazee",
+        url: "https://github.com/crafkaz",
+        username: "@crafkaz",
       },
     ],
   },
