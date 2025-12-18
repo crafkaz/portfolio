@@ -20,9 +20,11 @@ export const personalInfo: PersonalInfo = {
           "Laravel",
           "CodeIgniter",
           "Django",
+          "FastAPI",
           "Ruby",
           "PHP",
           "Python",
+          "TypeScript",
         ],
       },
       frontend: {
