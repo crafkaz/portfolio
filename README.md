@@ -23,8 +23,10 @@ $PROJECT_ROOT
 │   ├── components
 │   │   ├── shared          # Shared components
 │   │   ├── HeroSection.tsx
-│   │   ├── WorkSection.tsx
-│   │   └── ...
+│   │   ├── HobbySection.tsx
+│   │   ├── Home.tsx
+│   │   ├── SocialsSection.tsx
+│   │   └── WorkSection.tsx
 │   │
 │   │   # Configuration files
 │   ├── config
@@ -52,9 +54,9 @@ $PROJECT_ROOT
 │
 │   # Static files
 ├── public
-│   ├── images
-│   │   └── og-image.png    # Social sharing image
-│   └── favicon.ico         # Site favicon
+│   └── images
+│       ├── kazuki.JPG      # Profile image
+│       └── og-image.png    # Social sharing image
 │
 └── components/ui           # External UI components
 ```
