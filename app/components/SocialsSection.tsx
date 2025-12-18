@@ -6,15 +6,18 @@ import {
   HStack,
   Link,
   Flex,
+  Image,
 } from "@chakra-ui/react";
-import { IoLogoGithub, IoLogoTwitter } from "react-icons/io5";
+import { IoLogoGithub } from "react-icons/io5";
 import NextLink from "next/link";
 import { personalInfo } from "../config/profile";
 import { useAppTheme } from "../context/ThemeContext";
+import { useColorMode } from "../../components/ui/color-mode";
 
 export function SocialsSection() {
   const { themeConfig } = useAppTheme();
   const { cardBg, borderColor, textColor, accentColor } = themeConfig;
+  const { colorMode } = useColorMode();
 
   return (
     <Box as="section" mb={12}>
@@ -57,7 +60,16 @@ export function SocialsSection() {
             >
               <HStack>
                 {social.platform === "twitter" ? (
-                  <IoLogoTwitter color="#1DA1F2" size="20" />
+                  <Image
+                    src={
+                      colorMode === "dark"
+                        ? "/images/logo-white.png"
+                        : "/images/logo-black.png"
+                    }
+                    alt="X logo"
+                    width="20px"
+                    height="20px"
+                  />
                 ) : (
                   <IoLogoGithub color={textColor} size="20" />
                 )}
