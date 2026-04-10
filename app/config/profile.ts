@@ -10,7 +10,7 @@ export const personalInfo: PersonalInfo = {
     title: "Work",
     description: "Software Engineer | Osaka",
     experience:
-      "Web application design, development, and maintenance at a company in Osaka.",
+      "Web application design, development, and maintenance as a fully remote engineer based in Osaka.",
     techStacksTitle: "Tech stack",
     techStacks: {
       backend: {
