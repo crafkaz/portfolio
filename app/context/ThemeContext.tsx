@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 import { useTheme } from "next-themes";
 import { createThemeConfig } from "../lib/theme";
 import { Theme, ThemeConfig } from "../types";
@@ -15,13 +15,11 @@ type ThemeContextType = {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+const emptySubscribe = () => () => {};
+
 export function AppThemeProvider({ children }: { children: React.ReactNode }) {
   const { theme, resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   const themeConfig = createThemeConfig(theme as Theme, mounted);
 
