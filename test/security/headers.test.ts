@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import nextConfig from "@/next.config";
 
@@ -89,7 +89,7 @@ describe("content security policy", () => {
     expect(csp.get("frame-ancestors")).toEqual(["'none'"]);
   });
 
-  it("never allows unsafe-eval", async () => {
+  it("never allows unsafe-eval by default", async () => {
     const csp = await resolveCsp();
 
     for (const sources of csp.values()) {
@@ -112,5 +112,51 @@ describe("content security policy", () => {
       .sort();
 
     expect(directivesAllowingInline).toEqual(["script-src", "style-src"]);
+  });
+});
+
+describe("content security policy per environment", () => {
+  async function resolveCspFor(nodeEnv: string) {
+    vi.stubEnv("NODE_ENV", nodeEnv);
+    vi.resetModules();
+
+    const { default: config } = await import("@/next.config");
+    const rules = await config.headers!();
+    const csp = rules[0].headers.find(
+      ({ key }) => key === "Content-Security-Policy",
+    );
+
+    if (!csp) {
+      throw new Error("Content-Security-Policy header is not configured");
+    }
+    return parseCsp(csp.value);
+  }
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
+  });
+
+  it("allows unsafe-eval for scripts in development, which React needs for debugging", async () => {
+    const csp = await resolveCspFor("development");
+
+    expect(csp.get("script-src")).toContain("'unsafe-eval'");
+  });
+
+  it("confines unsafe-eval to script-src in development", async () => {
+    const csp = await resolveCspFor("development");
+
+    const directivesAllowingEval = [...csp.entries()]
+      .filter(([, sources]) => sources.includes("'unsafe-eval'"))
+      .map(([name]) => name);
+
+    expect(directivesAllowingEval).toEqual(["script-src"]);
+  });
+
+  it("never allows unsafe-eval in production", async () => {
+    const csp = await resolveCspFor("production");
+
+    for (const sources of csp.values()) {
+      expect(sources).not.toContain("'unsafe-eval'");
+    }
   });
 });
