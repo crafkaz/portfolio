@@ -68,14 +68,17 @@ export const personalInfo: PersonalInfo = {
   },
   socials: {
     title: "On the web",
+    newTabLabel: "(opens in a new tab)",
     items: [
       {
         platform: "twitter",
+        label: "X",
         url: "https://twitter.com/crafkaz",
         username: "@crafkaz",
       },
       {
         platform: "github",
+        label: "GitHub",
         url: "https://github.com/crafkaz",
         username: "@crafkaz",
       },

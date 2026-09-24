@@ -54,7 +54,7 @@ export function Navigation() {
                 transition: "all 0.2s",
               }}
             >
-              <IoLogoGithub style={{ marginRight: "4px" }} />
+              <IoLogoGithub aria-hidden style={{ marginRight: "4px" }} />
               {personalInfo.navigation.sourceLabel}
             </Link>
             <IconButton

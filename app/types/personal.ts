@@ -10,6 +10,7 @@ export interface HobbyItem {
 
 export interface SocialItem {
   platform: string;
+  label: string;
   url: string;
   username: string;
 }
@@ -49,6 +50,7 @@ export interface PersonalInfo {
   };
   socials: {
     title: string;
+    newTabLabel: string;
     items: SocialItem[];
   };
   navigation: {

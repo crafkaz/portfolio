@@ -7,6 +7,7 @@ import {
   Link,
   Flex,
   Image,
+  VisuallyHidden,
 } from "@chakra-ui/react";
 import { IoLogoGithub } from "react-icons/io5";
 import NextLink from "next/link";
@@ -66,16 +67,20 @@ export function SocialsSection() {
                         ? "/images/logo-white.png"
                         : "/images/logo-black.png"
                     }
-                    alt="X logo"
+                    alt=""
                     width="20px"
                     height="20px"
                   />
                 ) : (
-                  <IoLogoGithub color={textColor} size="20" />
+                  <IoLogoGithub aria-hidden color={textColor} size="20" />
                 )}
+                <VisuallyHidden>{social.label}</VisuallyHidden>
                 <Text fontWeight="bold" color={textColor}>
                   {social.username}
                 </Text>
+                <VisuallyHidden>
+                  {personalInfo.socials.newTabLabel}
+                </VisuallyHidden>
               </HStack>
             </Box>
           </Link>
