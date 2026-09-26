@@ -58,5 +58,5 @@ export interface PersonalInfo {
     themeToggleLabel: string;
   };
   sourceRepo: string;
-  copyright: string;
+  copyrightHolder: string;
 }
