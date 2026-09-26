@@ -89,5 +89,5 @@ export const personalInfo: PersonalInfo = {
     themeToggleLabel: "Toggle color mode",
   },
   sourceRepo: "https://github.com/18kazee/portfolio",
-  copyright: "© 2025 Kazuki Nagasawa. All Rights Reserved.",
+  copyrightHolder: "Kazuki Nagasawa",
 };

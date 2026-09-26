@@ -16,7 +16,8 @@ export function Footer() {
       borderColor={borderColor}
     >
       <Text fontSize="sm" color={mutedColor}>
-        {personalInfo.copyright}
+        © {new Date().getFullYear()} {personalInfo.copyrightHolder}. All Rights
+        Reserved.
       </Text>
     </Box>
   );
