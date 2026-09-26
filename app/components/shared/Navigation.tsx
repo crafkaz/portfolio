@@ -20,11 +20,10 @@ const sectionLinks = [
 ];
 
 export function Navigation() {
-  const { themeConfig, mounted, setTheme, resolvedTheme, theme } =
-    useAppTheme();
+  const { themeConfig, mounted, setTheme, resolvedTheme } = useAppTheme();
   const { borderColor, subtleBg, textColor, mutedColor, accentColor, navBg } =
     themeConfig;
-  const actualTheme = getActualTheme(mounted, theme, resolvedTheme);
+  const actualTheme = getActualTheme(mounted, resolvedTheme);
 
   const navLinkStyle = {
     display: "flex",
