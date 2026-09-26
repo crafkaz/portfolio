@@ -1,14 +1,14 @@
 "use client";
 
-import { ChakraProvider, defaultSystem } from "@chakra-ui/react";
-import { ThemeProvider } from "next-themes";
+import { ChakraProvider } from "@chakra-ui/react";
+import { ColorSchemeScript } from "./components/shared/ColorSchemeScript";
+import { system } from "./lib/system";
 
 export function Provider({ children }: { children: React.ReactNode }) {
   return (
-    <ChakraProvider value={defaultSystem}>
-      <ThemeProvider attribute="class" disableTransitionOnChange>
-        {children}
-      </ThemeProvider>
-    </ChakraProvider>
+    <>
+      <ColorSchemeScript />
+      <ChakraProvider value={system}>{children}</ChakraProvider>
+    </>
   );
 }

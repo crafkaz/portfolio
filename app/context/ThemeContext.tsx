@@ -1,36 +1,34 @@
 "use client";
 
-import { createContext, useContext, useSyncExternalStore } from "react";
-import { useTheme } from "next-themes";
-import { createThemeConfig } from "../lib/theme";
-import { Theme, ThemeConfig } from "../types";
+import { createContext, useContext } from "react";
+import {
+  setColorScheme,
+  useColorScheme,
+  type ColorScheme,
+} from "../lib/colorScheme";
+import { themeConfig } from "../lib/theme";
+import { ThemeConfig } from "../types";
 
 type ThemeContextType = {
   themeConfig: ThemeConfig;
   mounted: boolean;
-  theme: string | undefined;
-  resolvedTheme: string | undefined;
-  setTheme: (theme: string) => void;
+  resolvedTheme: ColorScheme | undefined;
+  setTheme: (theme: ColorScheme) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const emptySubscribe = () => () => {};
-
 export function AppThemeProvider({ children }: { children: React.ReactNode }) {
-  const { theme, resolvedTheme, setTheme } = useTheme();
-  const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
-
-  const themeConfig = createThemeConfig(theme as Theme, mounted);
+  const scheme = useColorScheme();
+  const mounted = scheme !== null;
 
   return (
     <ThemeContext.Provider
       value={{
         themeConfig,
         mounted,
-        theme,
-        resolvedTheme,
-        setTheme,
+        resolvedTheme: scheme ?? undefined,
+        setTheme: setColorScheme,
       }}
     >
       {children}

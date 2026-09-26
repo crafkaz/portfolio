@@ -7,7 +7,6 @@ Personal portfolio website built with Next.js and Chakra UI.
 - [Next.js](https://nextjs.org/) - React framework
 - [Chakra UI](https://chakra-ui.com/) - Component library
 - [TypeScript](https://typescriptlang.org/) - Type safety
-- [next-themes](https://github.com/pacocoursey/next-themes) - Theme switching
 
 ## Project structure
 

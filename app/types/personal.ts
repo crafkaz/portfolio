@@ -3,6 +3,13 @@ export interface TechStack {
   items: string[];
 }
 
+export interface ExperienceItem {
+  period: string;
+  role: string;
+  organization: string;
+  summary?: string;
+}
+
 export interface HobbyItem {
   title: string;
   subtitle: string;
@@ -30,19 +37,20 @@ export interface PersonalInfo {
   title: string;
   description: string;
   intro: string;
+  summary: string;
   heroSubtitle: string;
-  work: {
+  location: {
+    label: string;
+    timeZone: string;
+    timeZoneLabel: string;
+  };
+  experience: {
     title: string;
-    description: string;
-    experience: string;
-    techStacksTitle: string;
-    techStacks: {
-      backend: TechStack;
-      frontend: TechStack;
-      mobile: TechStack;
-      infrastructure: TechStack;
-      tools: TechStack;
-    };
+    items: ExperienceItem[];
+  };
+  stack: {
+    title: string;
+    groups: TechStack[];
   };
   hobbies: {
     title: string;
@@ -56,6 +64,11 @@ export interface PersonalInfo {
   navigation: {
     sourceLabel: string;
     themeToggleLabel: string;
+    backToTopLabel: string;
+  };
+  photoViewer: {
+    openLabel: string;
+    closeLabel: string;
   };
   sourceRepo: string;
   copyrightHolder: string;
