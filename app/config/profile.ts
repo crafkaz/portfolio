@@ -117,6 +117,10 @@ export const personalInfo: PersonalInfo = {
     themeToggleLabel: "Toggle color mode",
     backToTopLabel: "Back to top",
   },
+  photoViewer: {
+    openLabel: "View photo",
+    closeLabel: "Close photo",
+  },
   sourceRepo: "https://github.com/crafkaz/portfolio",
   copyrightHolder: "Kazuki Nagasawa",
 };

@@ -8,12 +8,12 @@ import {
 } from "@chakra-ui/react";
 import { IoLogoGithub } from "react-icons/io5";
 import { LuArrowDown, LuArrowUpRight } from "react-icons/lu";
-import NextImage from "next/image";
 import NextLink from "next/link";
 import { personalInfo } from "../config/profile";
 import { useAppTheme } from "../context/ThemeContext";
 import { riseIn } from "../lib/motion";
 import { LocalTime } from "./shared/LocalTime";
+import { ProfilePhoto } from "./shared/ProfilePhoto";
 
 export function HeroSection() {
   const { themeConfig } = useAppTheme();
@@ -88,26 +88,7 @@ export function HeroSection() {
       </Flex>
 
       <Flex align="center" gap={{ base: 5, md: 8 }} {...riseIn(80)}>
-        <Box
-          position="relative"
-          boxSize={{ base: "88px", md: "128px" }}
-          flexShrink={0}
-          borderRadius="full"
-          overflow="hidden"
-          border="1px solid"
-          borderColor={borderColor}
-          bg={subtleBg}
-        >
-          <NextImage
-            src="/images/kazuki.JPG"
-            alt={personalInfo.name}
-            fill
-            sizes="(min-width: 768px) 192px, 132px"
-            quality={90}
-            priority
-            style={{ objectFit: "cover" }}
-          />
-        </Box>
+        <ProfilePhoto />
         <Box minW={0}>
           <Heading
             as="h1"

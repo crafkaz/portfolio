@@ -66,6 +66,10 @@ export interface PersonalInfo {
     themeToggleLabel: string;
     backToTopLabel: string;
   };
+  photoViewer: {
+    openLabel: string;
+    closeLabel: string;
+  };
   sourceRepo: string;
   copyrightHolder: string;
 }
