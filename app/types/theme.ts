@@ -5,9 +5,13 @@ export type Theme = typeof THEME_LIGHT | typeof THEME_DARK;
 export interface ThemeConfig {
   bgColor: string;
   cardBg: string;
+  subtleBg: string;
+  tagBg: string;
   borderColor: string;
   textColor: string;
   mutedColor: string;
   accentColor: string;
   navBg: string;
+  gridDot: string;
+  glow: string;
 }

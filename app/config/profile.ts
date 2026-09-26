@@ -4,61 +4,83 @@ export const personalInfo: PersonalInfo = {
   name: "Kazuki Nagasawa",
   title: "Software Engineer | Osaka",
   description: "Software Engineer in Osaka. developer.",
-  intro: "Hello, I'm a developer based in Osaka!",
+  intro: "I build web applications.",
+  summary: "Currently at a data and AI company, working fully remote.",
   heroSubtitle: "Software Engineer / Drummer / Father",
-  work: {
-    title: "Work",
-    description: "Software Engineer | Osaka",
-    experience:
-      "Web application design, development, and maintenance as a fully remote engineer based in Osaka.",
-    techStacksTitle: "Tech stack",
-    techStacks: {
-      backend: {
-        title: "Backend",
+  location: {
+    label: "Osaka, Japan",
+    timeZone: "Asia/Tokyo",
+    timeZoneLabel: "JST",
+  },
+  experience: {
+    title: "Experience",
+    items: [
+      {
+        period: "Feb 2026 — Present",
+        role: "Software Engineer",
+        organization: "Data & AI company",
+        summary:
+          "Web applications on FastAPI, React, and Cloud Run, plus Rails apps on AWS.",
+      },
+      {
+        period: "Dec 2024 — Jan 2026",
+        role: "Software Engineer",
+        organization: "Web service company",
+        summary:
+          "Social media analytics and matching services, from design and infrastructure to deployment and operations.",
+      },
+      {
+        period: "Dec 2023 — Nov 2024",
+        role: "Software Engineer",
+        organization: "Web system development company",
+        summary:
+          "A reservation and customer management system and a payment system, including deployment and operations on AWS.",
+      },
+      {
+        period: "Earlier",
+        role: "Sound engineer (PA)",
+        organization: "5 years",
+      },
+    ],
+  },
+  stack: {
+    title: "Stack",
+    groups: [
+      {
+        title: "Languages",
+        items: ["TypeScript", "PHP", "Ruby", "Python", "Dart", "Kotlin"],
+      },
+      {
+        title: "Frameworks",
         items: [
-          "Ruby on Rails",
+          "Next.js",
+          "React",
+          "Vue.js",
+          "Nuxt.js",
           "Laravel",
+          "Ruby on Rails",
           "CodeIgniter",
           "Django",
           "FastAPI",
-          "Ruby",
-          "PHP",
-          "Python",
-          "TypeScript",
+          "Flutter",
         ],
       },
-      frontend: {
-        title: "Frontend",
-        items: [
-          "HTML5",
-          "JavaScript",
-          "Next.js",
-          "Nuxt.js",
-          "React",
-          "Vue.js",
-          "TypeScript",
-        ],
+      {
+        title: "Infra & data",
+        items: ["AWS", "GCP", "Firebase", "Docker", "MySQL", "PostgreSQL"],
       },
-      mobile: {
-        title: "Mobile",
-        items: ["Flutter", "Dart", "Kotlin"],
+      {
+        title: "Tools",
+        items: ["Git", "Linux", "Vim"],
       },
-      infrastructure: {
-        title: "Infrastructure",
-        items: ["Docker", "AWS", "MySQL", "PostgreSQL"],
-      },
-      tools: {
-        title: "Tools & Others",
-        items: ["Git", "Vim", "Linux"],
-      },
-    },
+    ],
   },
   hobbies: {
-    title: "Hobby",
+    title: "Off the clock",
     items: [
       {
         title: "Drums",
-        subtitle: "Music",
+        subtitle: "21 years behind the kit · certified instructor",
       },
       {
         title: "Family time",
@@ -73,7 +95,7 @@ export const personalInfo: PersonalInfo = {
       {
         platform: "twitter",
         label: "X",
-        url: "https://twitter.com/crafkaz",
+        url: "https://x.com/crafkaz",
         username: "@crafkaz",
       },
       {
@@ -82,12 +104,19 @@ export const personalInfo: PersonalInfo = {
         url: "https://github.com/crafkaz",
         username: "@crafkaz",
       },
+      {
+        platform: "zenn",
+        label: "Zenn",
+        url: "https://zenn.dev/crafkaz",
+        username: "@crafkaz",
+      },
     ],
   },
   navigation: {
     sourceLabel: "Source",
     themeToggleLabel: "Toggle color mode",
+    backToTopLabel: "Back to top",
   },
-  sourceRepo: "https://github.com/18kazee/portfolio",
+  sourceRepo: "https://github.com/crafkaz/portfolio",
   copyrightHolder: "Kazuki Nagasawa",
 };

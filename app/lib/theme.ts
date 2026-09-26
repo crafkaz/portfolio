@@ -9,12 +9,16 @@ export function createThemeConfig(
   const isDark = safeTheme === THEME_DARK;
 
   return {
-    bgColor: isDark ? "gray.900" : "white",
-    cardBg: isDark ? "whiteAlpha.50" : "white",
-    borderColor: isDark ? "whiteAlpha.200" : "gray.200",
-    textColor: isDark ? "whiteAlpha.900" : "gray.800",
-    mutedColor: isDark ? "whiteAlpha.700" : "gray.600",
-    accentColor: isDark ? "teal.300" : "teal.500",
-    navBg: isDark ? "blackAlpha.300" : "whiteAlpha.800",
+    bgColor: isDark ? "#0f1515" : "#fafafa",
+    cardBg: isDark ? "#151d1d" : "#ffffff",
+    subtleBg: isDark ? "rgba(179, 205, 204, 0.07)" : "rgba(0, 0, 0, 0.04)",
+    tagBg: isDark ? "rgba(159, 201, 196, 0.08)" : "rgba(179, 205, 204, 0.22)",
+    borderColor: isDark ? "#273333" : "#e4e4e7",
+    textColor: isDark ? "#e8eeed" : "#18181b",
+    mutedColor: isDark ? "#adbbb9" : "#52525b",
+    accentColor: isDark ? "#9fc9c4" : "#0c5d56",
+    navBg: isDark ? "rgba(15, 21, 21, 0.8)" : "rgba(250, 250, 250, 0.8)",
+    gridDot: isDark ? "rgba(179, 205, 204, 0.05)" : "rgba(9, 9, 11, 0.08)",
+    glow: isDark ? "rgba(159, 201, 196, 0.08)" : "rgba(20, 184, 166, 0.16)",
   };
 }

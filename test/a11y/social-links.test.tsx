@@ -10,6 +10,7 @@ import { renderWithProviders } from "../helpers/renderWithProviders";
 const expectedPlatformNames: Record<string, string> = {
   twitter: "X",
   github: "GitHub",
+  zenn: "Zenn",
 };
 
 function socialLinks() {

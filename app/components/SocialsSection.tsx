@@ -1,91 +1,111 @@
-import {
-  Box,
-  Heading,
-  Text,
-  Stack,
-  HStack,
-  Link,
-  Flex,
-  Image,
-  VisuallyHidden,
-} from "@chakra-ui/react";
+import { Box, Text, Link, Flex, VisuallyHidden } from "@chakra-ui/react";
+import type { IconType } from "react-icons";
+import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub } from "react-icons/io5";
+import { LuArrowUpRight } from "react-icons/lu";
+import { SiZenn } from "react-icons/si";
 import NextLink from "next/link";
 import { personalInfo } from "../config/profile";
 import { useAppTheme } from "../context/ThemeContext";
-import { useColorMode } from "../../components/ui/color-mode";
+import { Section } from "./shared/Section";
+
+const platformIcons: Record<string, IconType> = {
+  twitter: FaXTwitter,
+  github: IoLogoGithub,
+  zenn: SiZenn,
+};
 
 export function SocialsSection() {
   const { themeConfig } = useAppTheme();
-  const { cardBg, borderColor, textColor, accentColor } = themeConfig;
-  const { colorMode } = useColorMode();
+  const { cardBg, subtleBg, borderColor, textColor, mutedColor, accentColor } =
+    themeConfig;
 
   return (
-    <Box as="section" mb={12}>
-      <Flex align="center" mb={6}>
-        <Heading
-          as="h2"
-          size="lg"
-          borderBottom="3px solid"
-          borderColor={accentColor}
-          pb={2}
-          pr={4}
-          color={textColor}
-        >
-          {personalInfo.socials.title}
-        </Heading>
-        <Box flex="1" height="1px" bg={borderColor} ml={4} />
-      </Flex>
+    <Section id="socials" index={4} title={personalInfo.socials.title}>
+      <Box
+        as="ul"
+        listStyleType="none"
+        bg={cardBg}
+        border="1px solid"
+        borderColor={borderColor}
+        borderRadius="xl"
+        overflow="hidden"
+      >
+        {personalInfo.socials.items.map((social, index) => {
+          const Icon = platformIcons[social.platform];
 
-      <Stack gap={3}>
-        {personalInfo.socials.items.map((social) => (
-          <Link
-            key={social.platform}
-            as={NextLink}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            _hover={{ textDecoration: "none" }}
-          >
+          return (
             <Box
-              p={3}
-              borderRadius="lg"
-              bg={cardBg}
-              border="1px solid"
+              as="li"
+              key={social.platform}
+              borderTop={index === 0 ? undefined : "1px solid"}
               borderColor={borderColor}
-              _hover={{
-                transform: "translateX(4px)",
-                borderColor: accentColor,
-              }}
-              transition="all 0.2s"
             >
-              <HStack>
-                {social.platform === "twitter" ? (
-                  <Image
-                    src={
-                      colorMode === "dark"
-                        ? "/images/logo-white.png"
-                        : "/images/logo-black.png"
-                    }
-                    alt=""
-                    width="20px"
-                    height="20px"
-                  />
-                ) : (
-                  <IoLogoGithub aria-hidden color={textColor} size="20" />
-                )}
-                <VisuallyHidden>{social.label}</VisuallyHidden>
-                <Text fontWeight="bold" color={textColor}>
-                  {social.username}
-                </Text>
+              <Link
+                as={NextLink}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+                display="flex"
+                alignItems="center"
+                gap={3.5}
+                px={{ base: 4, md: 5 }}
+                py={4}
+                color={textColor}
+                _hover={{ textDecoration: "none", bg: subtleBg }}
+                _focusVisible={{
+                  outline: "2px solid",
+                  outlineColor: accentColor,
+                  outlineOffset: "-2px",
+                }}
+                transition="background 0.15s"
+              >
+                <Flex
+                  boxSize={9}
+                  flexShrink={0}
+                  align="center"
+                  justify="center"
+                  borderRadius="lg"
+                  bg={subtleBg}
+                >
+                  {Icon && <Icon aria-hidden size="18" />}
+                </Flex>
+                <Box minW={0}>
+                  <Text fontWeight="semibold" lineHeight="short">
+                    {social.label}
+                  </Text>
+                  <Text
+                    fontFamily="mono"
+                    fontSize="xs"
+                    color={mutedColor}
+                    lineHeight="short"
+                    mt={0.5}
+                  >
+                    {social.username}
+                  </Text>
+                </Box>
                 <VisuallyHidden>
                   {personalInfo.socials.newTabLabel}
                 </VisuallyHidden>
-              </HStack>
+                <Box
+                  as="span"
+                  ms="auto"
+                  color={mutedColor}
+                  fontSize="lg"
+                  transition="transform 0.2s, color 0.2s"
+                  _groupHover={{
+                    color: accentColor,
+                    transform: "translate(2px, -2px)",
+                  }}
+                >
+                  <LuArrowUpRight aria-hidden />
+                </Box>
+              </Link>
             </Box>
-          </Link>
-        ))}
-      </Stack>
-    </Box>
+          );
+        })}
+      </Box>
+    </Section>
   );
 }

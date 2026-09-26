@@ -13,6 +13,6 @@ export const siteMetadata: SiteMetadata = {
   ],
   author: "Kazuki Nagasawa",
   ogImage: "images/og-image.png",
-  twitterHandle: "@k_nagasawa_",
-  lang: "ja",
+  twitterHandle: "@crafkaz",
+  lang: "en",
 };
