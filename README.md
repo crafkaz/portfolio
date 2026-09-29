@@ -4,60 +4,50 @@ Personal portfolio website built with Next.js and Chakra UI.
 
 ## Stack
 
-- [Next.js](https://nextjs.org/) - React framework
-- [Chakra UI](https://chakra-ui.com/) - Component library
+- [Next.js](https://nextjs.org/) 16 (App Router) - React framework
+- [React](https://react.dev/) 19
+- [Chakra UI](https://chakra-ui.com/) v3 - Component library
+- [Tailwind CSS](https://tailwindcss.com/) v4
 - [TypeScript](https://typescriptlang.org/) - Type safety
+- [Vitest](https://vitest.dev/) + Testing Library - Tests
+- Node.js 24 / Yarn
 
 ## Project structure
 
 ```
 $PROJECT_ROOT
-│   # Page files
 ├── app
 │   ├── layout.tsx          # Root layout
 │   ├── page.tsx            # Homepage
 │   ├── providers.tsx       # App providers
+│   ├── globals.css         # Global styles
 │   │
-│   │   # UI components
-│   ├── components
-│   │   ├── shared          # Shared components
-│   │   ├── HeroSection.tsx
-│   │   ├── HobbySection.tsx
+│   ├── components          # Page sections
+│   │   ├── shared          # Navigation, Footer, Section, ProfilePhoto,
+│   │   │                   # LocalTime, ColorSchemeScript
 │   │   ├── Home.tsx
-│   │   ├── SocialsSection.tsx
-│   │   └── WorkSection.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── ExperienceSection.tsx
+│   │   ├── StackSection.tsx
+│   │   ├── HobbySection.tsx
+│   │   └── SocialsSection.tsx
 │   │
-│   │   # Configuration files
 │   ├── config
 │   │   ├── metadata.ts     # Site metadata config
-│   │   └── profile.ts      # Profile configuration
+│   │   └── profile.ts      # Profile content
 │   │
-│   │   # Utilities & context
-│   ├── lib
-│   │   ├── metadata.ts     # SEO metadata
-│   │   ├── theme.ts        # Theme utilities
-│   │   └── themeUtils.ts   # Additional theme helpers
-│   │
-│   ├── context
-│   │   └── ThemeContext.tsx # Theme context provider
-│   │
-│   │   # TypeScript definitions
-│   ├── types
-│   │   ├── personal.ts     # Personal info types
-│   │   ├── theme.ts        # Theme types
-│   │   └── index.ts        # Type exports
-│   │
-│   │   # App constants
-│   └── constants
-│       └── theme.ts        # Theme constants
+│   ├── lib                 # metadata, theme / colorScheme (CSS light-dark()),
+│   │                       # motion, system helpers
+│   ├── context             # ThemeContext
+│   ├── types               # Type definitions
+│   └── constants           # App constants
 │
-│   # Static files
-├── public
-│   └── images
-│       ├── kazuki.JPG      # Profile image
-│       └── og-image.png    # Social sharing image
-│
-└── components/ui           # External UI components
+├── components/ui           # Chakra UI snippets (toaster, tooltip)
+├── public/images           # Profile image, logos, OG image
+├── test                    # Vitest tests (a11y, footer, security, theme)
+├── next.config.ts          # Security headers (CSP etc.)
+├── Dockerfile
+└── compose.yaml
 ```
 
 ## License
