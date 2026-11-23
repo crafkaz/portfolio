@@ -17,19 +17,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7.0.1
 
-      - uses: actions/setup-node@v5
-        with:
-          node-version-file: .nvmrc
-          cache: yarn
+      - uses: oven-sh/setup-bun@v2.2.0
 
-      - run: yarn install --frozen-lockfile
+      - run: bun install --frozen-lockfile
 
-      - run: yarn lint
+      - run: bun run lint
 
-      - run: yarn typecheck
+      - run: bun run typecheck
 
-      - run: yarn test:run
+      - run: bun run test:run
 
-      - run: yarn build
+      - run: bun run build
