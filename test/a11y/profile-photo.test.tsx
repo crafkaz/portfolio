@@ -23,6 +23,10 @@ describe("ProfilePhoto", () => {
     renderWithProviders(<ProfilePhoto />);
 
     fireEvent.click(screen.getByRole("button", { name: photoViewer.openLabel }));
+    const dialog = await screen.findByRole("dialog", { name: personalInfo.name });
+
+    Object.defineProperty(dialog, "getAnimations", { value: () => [] });
+
     fireEvent.click(
       await screen.findByRole("button", { name: photoViewer.closeLabel }),
     );
