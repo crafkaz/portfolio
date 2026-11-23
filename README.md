@@ -10,7 +10,7 @@ Personal portfolio website built with Next.js and Chakra UI.
 - [Tailwind CSS](https://tailwindcss.com/) v4
 - [TypeScript](https://typescriptlang.org/) - Type safety
 - [Vitest](https://vitest.dev/) + Testing Library - Tests
-- Node.js 26 / Yarn
+- [Bun](https://bun.com/) 1.4.5 (runtime and package manager)
 
 ## Project structure
 
