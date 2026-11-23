@@ -1,6 +1,10 @@
 import "@testing-library/jest-dom/vitest";
 import { cleanup } from "@testing-library/react";
 import { afterEach, vi } from "vitest";
+import type {} from "vitest/jsdom";
+
+// Node's global localStorage takes precedence over jsdom's browser storage.
+vi.stubGlobal("localStorage", jsdom.window.localStorage);
 
 Object.defineProperty(window, "matchMedia", {
   writable: true,
