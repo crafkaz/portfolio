@@ -8,5 +8,12 @@ services:
       - "3000:3000"
     command: ["sh", "-c", "bun install --frozen-lockfile && exec bun run dev"]
 
+  e2e:
+    profiles: [test]
+    build:
+      context: .
+      dockerfile: test/e2e/Dockerfile
+    init: true
+
 volumes:
   bun_node_modules:

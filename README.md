@@ -9,8 +9,13 @@ Personal portfolio website built with Next.js and Chakra UI.
 - [Chakra UI](https://chakra-ui.com/) v3 - Component library
 - [Tailwind CSS](https://tailwindcss.com/) v4
 - [TypeScript](https://typescriptlang.org/) - Type safety
-- [Vitest](https://vitest.dev/) + Testing Library - Tests
+- [Vitest](https://vitest.dev/) + Testing Library - Unit and component tests
+- [Playwright](https://playwright.dev/) - Browser tests
 - [Bun](https://bun.com/) 1.4.5 (runtime and package manager)
+
+## Development
+
+See the [development guide](docs/README.md) for setup, dependency changes, and verification.
 
 ## Project structure
 
@@ -44,7 +49,7 @@ $PROJECT_ROOT
 │
 ├── components/ui           # Chakra UI snippets (toaster, tooltip)
 ├── public/images           # Profile image, logos, OG image
-├── test                    # Vitest tests (a11y, footer, security, theme)
+├── test                    # Vitest tests and Playwright browser tests (e2e)
 ├── next.config.ts          # Security headers (CSP etc.)
 ├── Dockerfile
 └── compose.yaml
